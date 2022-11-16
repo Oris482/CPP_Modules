@@ -6,14 +6,14 @@
 #    By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 13:30:48 by jaesjeon          #+#    #+#              #
-#    Updated: 2022/11/16 19:35:44 by jaesjeon         ###   ########.fr        #
+#    Updated: 2022/11/16 19:34:46 by jaesjeon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors
 RM = rm -rvf
-NAME = megaphone
+NAME = GBTest
 
 INCS_DIR = ./
 INCS =
@@ -36,7 +36,7 @@ all: ${NAME}
 
 ${NAME}: ${OBJS}
 	@echo "# Start Linking"
-	${CC} ${CPPFLAGS} -o ${NAME} ${OBJS}
+	${CC} ${CPPFLAGS} -I${INCS_DIR} -o ${NAME} ${OBJS}
 
 clean: 
 	@echo "# Deleted files"

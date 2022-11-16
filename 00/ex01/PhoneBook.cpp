@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 21:47:13 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/16 17:02:33 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/16 19:37:51 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,15 @@ PhoneBook::PhoneBook() {
     oldestContactIndex = 0;
     newestContactIndex = -1;
     contactDataSize = 0;
-};
+}
 
 PhoneBook::~PhoneBook() {
     std::cout << "PhoneBook desturcted" << std::endl;
-};
+}
 
 int PhoneBook::getPhoneBookSize() const {
     return (phoneBookSize);
-};
+}
 
 void PhoneBook::setContactData(std::string dataType, int dataIndex, bool isPhoneNumber) {
     std::string inputValue;
@@ -102,7 +102,7 @@ bool PhoneBook::addNewContact() {
     clearContactData();
     if (contactDataSize < phoneBookSize) contactDataSize++;
     return true;
-};
+}
 
 std::string PhoneBook::compressString(std::string::size_type width, std::string str) const {
     if (str.length() <= width) {
@@ -135,7 +135,7 @@ void PhoneBook::printContactList(void) const {
         << std::setprecision(columnWidth) << contactData[nicknameIdx] << std::endl;
     }
     std::cout << "Total " << contactDataSize << " Data\n" << std::endl;
-};
+}
 
 void PhoneBook::printSingleContactData(void) const {
     if (contactDataSize == 0) return ;
@@ -147,7 +147,7 @@ void PhoneBook::printSingleContactData(void) const {
         std::cout << "Cancled" << std::endl;
         std::cin.clear();
         if (std::cin.eof()) std::clearerr(stdin);
-        std::cin.ignore(LLONG_MAX, '\n');
+        std::cin.ignore(LONG_MAX, '\n');
         return ;
     } else if (idx <= 0 || idx > contactDataSize) {
         std::cout << MSG_WRONG_IDX << std::endl;
@@ -162,4 +162,4 @@ void PhoneBook::printSingleContactData(void) const {
     std::cout << std::setw(14) << "Phone Number" << " : " << _contacts[idx].getPhoneNumber() << std::endl;
     std::cout << std::setw(14) << "Darkest Secret" << " : " << _contacts[idx].getDarkestSecret() << std::endl;
     std::cin.ignore();
-};
+}
