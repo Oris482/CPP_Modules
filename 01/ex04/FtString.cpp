@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:51:56 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/17 17:01:34 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/18 01:43:19 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void FtString::replace(const std::string s1, const std::string s2) {
         prevFindIdx = findIdx + destChunkLength;
     }
     replacedString.append(this->_str.substr(prevFindIdx));
-    if (needShrink) replacedString.shrink_to_fit();
+    if (needShrink) replacedString.resize(replacedString.length());
     this->_str = replacedString;
     this->_length = this->_str.length();
 }
