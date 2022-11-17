@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 16:27:31 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/17 17:27:41 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/18 01:46:51 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ int main(int argc, char *argv[]) {
     std::string readline;
     FtString writeline;
 
-    fin.open(inputFileName);
+    fin.open(inputFileName.c_str());
     if (fin.fail()) {
         std::cout << MSG_FILE_OPEN_ERROR << std::endl;
         return 1;
     }
 
-    fout.open(outputFileName);
+    fout.open(outputFileName.c_str());
     if (fout.fail()) {
         std::cout << MSG_FILE_CREATE_ERROR << std::endl;
         return 1;
