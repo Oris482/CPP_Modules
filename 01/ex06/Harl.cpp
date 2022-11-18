@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:57:26 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/18 17:23:19 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/18 17:24:59 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #define MSG_INFO "I cannot believe adding extra bacon costs more money. You didn’t put enough bacon in my burger! If you did, I wouldn’t be asking for more!"
 #define MSG_WARNING "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month."
 #define MSG_ERROR "This is unacceptable! I want to speak to the manager now."
-#define MSG_EXCEPTION "I can't handle that function"
+#define MSG_EXCEPTION "[ Probably complaining about insignificant problems ]"
 
 Harl::Harl(void) {
     this->harlFunc[DEBUG] = &Harl::debug;
@@ -51,7 +51,6 @@ void Harl::error(void) {
 }
 
 void Harl::exception(void) {
-    std::cout << "[EXCEPTION]" << std::endl;
     std::cout << MSG_EXCEPTION << std::endl;
 }
 
@@ -63,15 +62,12 @@ void Harl::complain(std::string level) {
     {
         case 0:
             (this->*harlFunc[0])();
-            break;
         
         case 7:
             (this->*harlFunc[1])();
-            break;
         
         case 13:
             (this->*harlFunc[2])();
-            break;
         
         case 22:
             (this->*harlFunc[3])();
