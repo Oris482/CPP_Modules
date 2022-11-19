@@ -6,14 +6,14 @@
 #    By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 13:30:48 by jaesjeon          #+#    #+#              #
-#    Updated: 2022/11/19 23:09:56 by jaesjeon         ###   ########.fr        #
+#    Updated: 2022/11/20 00:14:50 by jaesjeon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors
 RM = rm -rvf
-NAME = Unit
+NAME = UnitTrap
 
 INCS_DIR = ./
 INCS =${notdir ${wildcard ${SRC_INCS_DIR}*.hpp}}
