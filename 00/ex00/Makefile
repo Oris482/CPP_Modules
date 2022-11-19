@@ -6,20 +6,20 @@
 #    By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 13:30:48 by jaesjeon          #+#    #+#              #
-#    Updated: 2022/11/16 19:35:44 by jaesjeon         ###   ########.fr        #
+#    Updated: 2022/11/19 15:53:22 by jaesjeon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors
 RM = rm -rvf
-NAME = megaphone
+NAME = Megaphone
 
 INCS_DIR = ./
-INCS =
+INCS =${notdir ${wildcard ${SRC_INCS_DIR}*.hpp}}
 
 SRCS_DIR = ./
-SRCS = ${notdir ${wildcard ${SRC_DIR}*.cpp}}
+SRCS = ${notdir ${wildcard ${SRCS_DIR}*.cpp}}
 
 OBJS_DIR = objs/
 OBJS = ${addprefix ${OBJS_DIR}, ${SRCS:.cpp=.o}}
@@ -34,9 +34,9 @@ ${OBJS_DIR}%.o: ${SRCS_DIR}%.cpp
 
 all: ${NAME}
 
-${NAME}: ${OBJS}
+${NAME}: ${OBJS} ${INCS}
 	@echo "# Start Linking"
-	${CC} ${CPPFLAGS} -o ${NAME} ${OBJS}
+	${CC} ${CPPFLAGS} -I${INCS_DIR} -o ${NAME} ${OBJS}
 
 clean: 
 	@echo "# Deleted files"

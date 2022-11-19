@@ -6,20 +6,20 @@
 #    By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 13:30:48 by jaesjeon          #+#    #+#              #
-#    Updated: 2022/11/17 13:47:45 by jaesjeon         ###   ########.fr        #
+#    Updated: 2022/11/19 15:50:36 by jaesjeon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors
 RM = rm -rvf
-NAME = CheckPointerRef
+NAME = DiffPointerRef
 
 INCS_DIR = ./
-INCS =
+INCS =${notdir ${wildcard ${SRC_INCS_DIR}*.hpp}}
 
 SRCS_DIR = ./
-SRCS = ${notdir ${wildcard ${SRC_DIR}*.cpp}}
+SRCS = ${notdir ${wildcard ${SRCS_DIR}*.cpp}}
 
 OBJS_DIR = objs/
 OBJS = ${addprefix ${OBJS_DIR}, ${SRCS:.cpp=.o}}
@@ -34,7 +34,7 @@ ${OBJS_DIR}%.o: ${SRCS_DIR}%.cpp
 
 all: ${NAME}
 
-${NAME}: ${OBJS}
+${NAME}: ${OBJS} ${INCS}
 	@echo "# Start Linking"
 	${CC} ${CPPFLAGS} -I${INCS_DIR} -o ${NAME} ${OBJS}
 
