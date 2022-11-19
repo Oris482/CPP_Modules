@@ -6,13 +6,12 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 16:27:31 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/18 01:46:51 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:50:18 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-#include <string>
 #include "FtString.hpp"
 
 #define MSG_ARG_ERROR "Arguments error [Usage : <executable> filename dest src]"

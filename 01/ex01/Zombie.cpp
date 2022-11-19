@@ -6,12 +6,11 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:06:32 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/16 21:26:34 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:47:31 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <string>
 #include "Zombie.hpp"
 
 #define MSG_ZOMBIE_SOUND ": BraiiiiiiinnnzzzZ..."

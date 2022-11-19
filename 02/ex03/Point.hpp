@@ -6,11 +6,14 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 18:43:53 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/19 20:36:29 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:53:55 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#ifndef POINT_H__
+# define POINT_H__
+
 #include "Fixed.hpp"
 
 class Point {
@@ -33,3 +36,5 @@ class Point {
         static Fixed getTriangleArea(const Point &A, const Point &B, const Point &C);
         static bool bsp( Point const a, Point const b, Point const c, Point const point);
 };
+
+#endif

@@ -6,12 +6,15 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 21:33:05 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/16 01:02:38 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 21:00:58 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <string>
+#ifndef __CONTACT_H__
+# define __CONTACT_H__
+
+# include <string>
 
 enum contractInfoIndex {
     firstNameIdx = 0,
@@ -42,3 +45,5 @@ class Contact {
         std::string getPhoneNumber(void) const;
         std::string getDarkestSecret(void) const;
 };
+
+#endif

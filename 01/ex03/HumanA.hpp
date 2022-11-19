@@ -6,13 +6,15 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:18:14 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/17 15:41:09 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:49:16 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <string>
-#include "Weapon.hpp"
+#ifndef HUMANA_H__
+# define HUMANA_H__
+
+# include "Weapon.hpp"
 
 class HumanA {
     private:
@@ -24,3 +26,5 @@ class HumanA {
         ~HumanA(void);
         void attack(void) const;
 };
+
+#endif

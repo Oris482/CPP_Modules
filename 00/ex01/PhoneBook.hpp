@@ -6,12 +6,14 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 21:33:07 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/16 16:16:51 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:44:24 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <string>
+#ifndef __PHONEBOOK_H__
+# define __PHONEBOOK_H__
+
 #include "Contact.hpp"
 
 class PhoneBook {
@@ -35,3 +37,5 @@ class PhoneBook {
         void printContactList(void) const;
         void printSingleContactData(void) const;
 };
+
+#endif

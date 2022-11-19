@@ -6,12 +6,15 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:18:16 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/17 15:32:00 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:48:49 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <string>
+#ifndef WEAPON_H__
+# define WEAPON_H__
+
+# include <string>
 
 class Weapon {
     private:
@@ -24,3 +27,5 @@ class Weapon {
         const std::string &getType(void) const;
         void setType(const std::string &type);
 };
+
+#endif

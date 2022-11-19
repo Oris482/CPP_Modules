@@ -6,9 +6,13 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:59:53 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/19 15:07:35 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:51:50 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
+#ifndef FIXED_H__
+# define FIXED_H__
 
 class Fixed {
     private:
@@ -23,3 +27,5 @@ class Fixed {
         int getRawBits(void) const;
         void setRawBits(int const raw);
 };
+
+#endif

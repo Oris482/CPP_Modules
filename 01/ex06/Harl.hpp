@@ -6,11 +6,13 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:57:23 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/18 16:33:09 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 21:00:35 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
+#pragma once
+#ifndef HARL_H__
+# define HARL_H__
 
 enum functionIndex {
     DEBUG = 0,
@@ -34,3 +36,5 @@ class Harl {
         ~Harl(void);
         void complain(std::string level);
 };
+
+#endif

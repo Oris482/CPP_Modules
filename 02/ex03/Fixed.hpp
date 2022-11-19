@@ -6,12 +6,15 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:59:53 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/19 20:30:23 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 21:05:19 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <iostream>
+#ifndef FIXED_H__
+# define FIXED_H__
+
+# include <ostream>
 
 class Fixed {
     private:
@@ -56,3 +59,5 @@ class Fixed {
 };
 
 std::ostream& operator<< (std::ostream& os, const Fixed& target);
+
+#endif

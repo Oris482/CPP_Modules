@@ -6,12 +6,11 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 14:15:33 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/17 15:41:06 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:49:42 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Weapon.hpp"
 #include "HumanA.hpp"
 #include "HumanB.hpp"
 

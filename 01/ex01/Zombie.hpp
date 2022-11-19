@@ -6,12 +6,15 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/16 20:03:19 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/16 21:27:58 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 20:47:23 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <string>
+#ifndef __ZOMBIE_H__
+# define __ZOMBIE_H__
+
+# include <string>
 
 class Zombie {
     public:
@@ -27,3 +30,5 @@ class Zombie {
 };
 
 Zombie* zombieHorde( int N, std::string name );
+
+#endif
