@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:59:51 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/19 17:25:21 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 19:17:35 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,22 +70,22 @@ bool Fixed::operator!= (const Fixed &target) const {
     return (this->_fixedPointValue != target.getRawBits());
 }
 
-Fixed Fixed::operator+ (const Fixed &target) {
+Fixed Fixed::operator+ (const Fixed &target) const {
     Fixed temp(this->toFloat() + target.toFloat());
     return temp;
 }
 
-Fixed Fixed::operator- (const Fixed &target) {
+Fixed Fixed::operator- (const Fixed &target) const {
     Fixed temp(this->toFloat() - target.toFloat());
     return temp;
 }
 
-Fixed Fixed::operator* (const Fixed &target) {
+Fixed Fixed::operator* (const Fixed &target) const {
     Fixed temp(this->toFloat() * target.toFloat());
     return temp;
 }
 
-Fixed Fixed::operator/ (const Fixed &target) {
+Fixed Fixed::operator/ (const Fixed &target) const {
     Fixed temp(this->toFloat() / target.toFloat());
     return temp;
 }
