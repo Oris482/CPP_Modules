@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:59:53 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/19 17:25:22 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:08:25 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,10 @@ class Fixed {
         ~Fixed(void);
         Fixed(const Fixed &src);
         Fixed& operator= (const Fixed &src);
+
         Fixed(const int num);
         Fixed(const float num);
+
         bool operator> (const Fixed &target) const;
         bool operator>= (const Fixed &target) const;
         bool operator< (const Fixed &target) const;
@@ -36,10 +38,12 @@ class Fixed {
         Fixed& operator--(void);
         Fixed operator++(int);
         Fixed operator--(int);
+
         int getRawBits(void) const;
         void setRawBits(int const raw);
         float toFloat(void) const;
         int toInt(void) const;
+        
         static float getEpsilon(void);
         static Fixed& min(Fixed &A, Fixed &B);
         static const Fixed& min(const Fixed &A, const Fixed &B);

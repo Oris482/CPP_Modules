@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 18:31:36 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/19 17:31:59 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/19 18:07:53 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,8 @@ int main( void ) {
     std::cout << "min(constBaseNum, constBigNum) : " << Fixed::min(constBaseNum, constBigNum) << std::endl;
     std::cout << "max(constBaseNum, constSmallNum) : " << Fixed::max(constBaseNum, constSmallNum) << std::endl;
     std::cout << "max(constBaseNum, constBigNum) : " << Fixed::max(constBaseNum, constBigNum) << std::endl;
+    std::cout << "-------------------------------------------" << std::endl;
+    std::cout << "min(3.3f, 3.7f) : " << Fixed::min(3.3f, 3.7f) << std::endl;
+    std::cout << "max(3.3f, 3.7f) : " << Fixed::max(3.3f, 3.7f) << std::endl;
     return 0;
 }
