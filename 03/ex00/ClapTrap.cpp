@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 23:20:30 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/20 00:33:01 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/20 21:32:05 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@
 #define MSG_OPERATOR " operator called"
 
 const std::string ClapTrap::unitType = "ClapTrap";
-
-ClapTrap::ClapTrap(void): _name("undefined"), _hitPoint(10), _energyPoint(10), _attackDamage(0) {
-    std::cout << "Default " << ClapTrap::unitType << MSG_CONSTRUCTOR << std::endl;
-    this->printMyStatus();
-}
 
 ClapTrap::~ClapTrap(void) {
     std::cout << this->_name << " " << ClapTrap::unitType << MSG_DESTRUCTOR << std::endl;

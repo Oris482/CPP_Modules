@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 23:53:50 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/20 00:32:02 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/20 21:33:25 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int main(void) {
         userA.printMyStatus();
 
         std::cout << std::endl;
-        std::cout << "copy case1" << std::endl;
-        ClapTrap userC;
+        std::cout << "copy case 1" << std::endl;
+        ClapTrap userC("undefine");
         userC = userA;
     }
     {
@@ -57,7 +57,7 @@ int main(void) {
         userB.printMyStatus();
 
         std::cout << std::endl;
-        std::cout << "copy case2" << std::endl;
+        std::cout << "copy case 2" << std::endl;
         ClapTrap userD(userB);
     }
     return 0;

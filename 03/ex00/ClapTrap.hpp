@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 23:20:31 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/20 00:31:26 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/20 21:32:14 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 class ClapTrap {
     private:
+        ClapTrap(void);
         static const std::string unitType;
         std::string _name;
         unsigned int _hitPoint;
@@ -25,7 +26,6 @@ class ClapTrap {
         unsigned int _attackDamage;
 
     public:
-        ClapTrap(void);
         ~ClapTrap(void);
         ClapTrap(const ClapTrap &src);
         ClapTrap& operator= (const ClapTrap &src);
