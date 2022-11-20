@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 21:15:15 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/19 22:41:07 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/20 21:21:56 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 class Triangle {
     private:
+        Triangle(void);
         Point _a;
         Point _b;
         Point _c;
@@ -25,7 +26,6 @@ class Triangle {
         Fixed _area;
 
     public:
-        Triangle(void);
         ~Triangle(void);
         Triangle(const Triangle &src);
         Triangle& operator= (const Triangle &src);

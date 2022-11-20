@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 21:28:53 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/19 22:57:00 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/20 21:22:16 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 #include <string>
 #include "Triangle.hpp"
 #define MSG_NOT_TRIANGLE "It is not a triangle!"
-
-Triangle::Triangle(void): _a(0, 0), _b(0, 0), _c(0, 0), _isTriangle(false), _area(0) {
-    std::cout << MSG_NOT_TRIANGLE << std::endl;
-}
 
 Triangle::~Triangle(void) {}
 
