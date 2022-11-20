@@ -6,35 +6,34 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 23:20:30 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/20 00:13:30 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/20 00:33:01 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "ClapTrap.hpp"
 #define MSG_CONSTRUCTOR " constructor called"
-#define MSG_DESTRUCTOR "Destructor called"
+#define MSG_DESTRUCTOR " destructor called"
 #define MSG_OPERATOR " operator called"
 
 const std::string ClapTrap::unitType = "ClapTrap";
 
 ClapTrap::ClapTrap(void): _name("undefined"), _hitPoint(10), _energyPoint(10), _attackDamage(0) {
-    std::cout << "Default" << MSG_CONSTRUCTOR << std::endl;
+    std::cout << "Default " << ClapTrap::unitType << MSG_CONSTRUCTOR << std::endl;
     this->printMyStatus();
 }
 
 ClapTrap::~ClapTrap(void) {
-    std::cout << MSG_DESTRUCTOR << std::endl;
+    std::cout << this->_name << " " << ClapTrap::unitType << MSG_DESTRUCTOR << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src) {
-    std::cout << "Copy " << MSG_CONSTRUCTOR << std::endl;
+    std::cout << "Copy " << ClapTrap::unitType << MSG_CONSTRUCTOR << std::endl;
     *this = src;
-    this->printMyStatus();
 }
 
 ClapTrap& ClapTrap::operator= (const ClapTrap &src) {
-    std::cout << "Copy assignment" << MSG_OPERATOR << std::endl;
+    std::cout << "Copy assignment " << ClapTrap::unitType << MSG_OPERATOR << std::endl;
     this->_name = src._name;
     this->_hitPoint = src._hitPoint;
     this->_energyPoint = src._energyPoint;
@@ -44,7 +43,7 @@ ClapTrap& ClapTrap::operator= (const ClapTrap &src) {
 }
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hitPoint(10), _energyPoint(10), _attackDamage(0) {
-    std::cout << this->_name << MSG_CONSTRUCTOR << std::endl;
+    std::cout << this->_name << " " << ClapTrap::unitType << MSG_CONSTRUCTOR << std::endl;
     this->printMyStatus();
 }
 
