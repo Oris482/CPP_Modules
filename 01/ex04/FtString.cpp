@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 15:51:56 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/18 01:43:19 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/20 14:44:44 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ void FtString::assign(std::string str) {
 
 void FtString::replace(const std::string s1, const std::string s2) {
     const std::string::size_type destChunkLength = s1.length();
+    if (destChunkLength == 0) return ;
     const std::string::size_type srcChunkLength = s2.length();
     const bool needShrink = destChunkLength > srcChunkLength;
     std::string::size_type prevFindIdx = 0;
