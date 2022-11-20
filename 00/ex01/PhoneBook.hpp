@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 21:33:07 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/19 20:44:24 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/20 14:03:29 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class PhoneBook {
     private:
-        const static int phoneBookSize = 2;
+        const static int phoneBookSize = 8;
         const static std::string::size_type columnWidth = 10;
         Contact _contacts[phoneBookSize];
         std::string contactInputData[5];
