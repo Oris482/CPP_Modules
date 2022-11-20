@@ -6,12 +6,13 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 21:47:13 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/16 19:37:51 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/20 15:06:25 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 #include "PhoneBook.hpp"
 
 #define MSG_WRONG_IDX "Wrong index input! Please check again."
@@ -43,7 +44,7 @@ void PhoneBook::setContactData(std::string dataType, int dataIndex, bool isPhone
             std::cout << std::endl;
         } else if (isPhoneNumber) {
             for (std::string::size_type i = 0; i < inputValue.length(); ++i) {
-                if (!std::isdigit(inputValue[i])) {
+                if (!std::isdigit(inputValue.at(i))) {
                     std::cout << "Only digit for phone number!" << std::endl;
                     inputValue.clear();
                     continue;
@@ -140,20 +141,41 @@ void PhoneBook::printContactList(void) const {
 void PhoneBook::printSingleContactData(void) const {
     if (contactDataSize == 0) return ;
 
+    std::string inputIdxString;
+    std::stringstream ssInt;
     int idx;
-    std::cout << "Select index : ";
-    std::cin >> idx;
-    if (std::cin.fail()) {
-        std::cout << "Cancled" << std::endl;
-        std::cin.clear();
-        if (std::cin.eof()) std::clearerr(stdin);
-        std::cin.ignore(LONG_MAX, '\n');
-        return ;
-    } else if (idx <= 0 || idx > contactDataSize) {
+
+    while (inputIdxString.empty()) {
+        std::cout << "Select index : ";
+        std::getline(std::cin, inputIdxString);
+        if (std::cin.eof()) {
+            std::cout << "Cancled" << std::endl;
+            std::cin.clear();
+            std::clearerr(stdin);
+            return ;
+        } else {
+            for (std::string::size_type i = 0; i < inputIdxString.length(); ++i) {
+                if (!std::isdigit(inputIdxString.at(i))) {
+                    std::cout << "Only digit for contact index!" << std::endl;
+                    inputIdxString.clear();
+                }
+            }
+        }
+
+        if (inputIdxString.empty()) continue ;
+
+        ssInt << inputIdxString;
+        ssInt >> idx;
+        if (ssInt.fail()) {
+            std::cout << "Cancled" << std::endl;
+            return ;
+        }
+    }
+    if (idx <= 0 || idx > contactDataSize) {
         std::cout << MSG_WRONG_IDX << std::endl;
-        std::cin.ignore();
         return ;
     }
+
     idx--;
     std::cout.setf (std::ios::left, std::ios::adjustfield);
     std::cout << std::setw(14) << "First Name" << " : " << _contacts[idx].getFirstName() << std::endl;
@@ -161,5 +183,4 @@ void PhoneBook::printSingleContactData(void) const {
     std::cout << std::setw(14) << "Nickname" << " : " << _contacts[idx].getNickname() << std::endl;
     std::cout << std::setw(14) << "Phone Number" << " : " << _contacts[idx].getPhoneNumber() << std::endl;
     std::cout << std::setw(14) << "Darkest Secret" << " : " << _contacts[idx].getDarkestSecret() << std::endl;
-    std::cin.ignore();
 }
