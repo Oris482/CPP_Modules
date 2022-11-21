@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 21:17:28 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/20 22:38:16 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:21:34 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@ ScavTrap::~ScavTrap(void) {
 }
 
 ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap(src) {
+    std::cout << "ScavTrap" << " " << "Copy " << MSG_CONSTRUCTOR << std::endl;
     *this = src;
 }
 
 ScavTrap& ScavTrap::operator= (const ScavTrap &src) {
+    std::cout << "ScavTrap" << " " << "Copy assignment" << MSG_OPERATOR << std::endl;
     this->_name = src._name;
     this->_hitPoint = src._hitPoint;
     this->_energyPoint = src._energyPoint;
