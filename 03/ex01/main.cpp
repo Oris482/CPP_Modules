@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 23:53:50 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/21 17:51:49 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/21 21:03:02 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int main(void) {
         std::cout << "-------------------------------------" << std::endl;
         saffy.attack("ftseoul");
         saffy.guardGate();
+        saffy.guardGate();
     }
     std::cout << "#####################################" << std::endl;
     {
@@ -43,7 +44,7 @@ int main(void) {
         upCastedSaffy->attack("ftseoul");
         // upCastedSaffy->guardGate();
         delete upCastedSaffy;
-        system("leaks UnitTrap2");
     }
+    system("leaks UnitTrap2");
     return 0;
 }

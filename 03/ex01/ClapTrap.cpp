@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 23:20:30 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/21 18:44:41 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/21 21:03:39 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ ClapTrap& ClapTrap::operator= (const ClapTrap &src) {
     return *this;
 }
 
-ClapTrap::ClapTrap(std::string name): _name(name), _hitPoint(10), _energyPoint(10), _attackDamage(0) {
+ClapTrap::ClapTrap(const std::string name): _name(name), _hitPoint(10), _energyPoint(10), _attackDamage(0) {
     std::cout << "ClapTrap" << " " << this->_name << MSG_CONSTRUCTOR << std::endl;
 }
 
@@ -58,11 +58,11 @@ bool ClapTrap::checkCanAction(void) const {
 }
 
 void ClapTrap::attack(const std::string &target) {
-    if (this->checkCanAction()) {
-        this->_energyPoint -=1;
-        std::cout << "ClapTrap" << " " << this->_name << " attacks " << target \
-                    << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
-    }
+    if (this->checkCanAction() == false) return ;
+
+    this->_energyPoint -=1;
+    std::cout << "ClapTrap" << " " << this->_name << " attacks " << target \
+                << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount) {
@@ -70,6 +70,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
         std::cout << "HP is already 0!" << std::endl;
         return ;
     }
+    
     if (this->_hitPoint <= amount) this->_hitPoint = 0;
     else this->_hitPoint -= amount;
     std::cout << "ClapTrap" << " " << this->_name << " takes " << amount << " points of damage" << std::endl;
@@ -77,10 +78,10 @@ void ClapTrap::takeDamage(unsigned int amount) {
 }
 
 void ClapTrap::beRepaired(unsigned int amount) {
-    if (this->checkCanAction()) {
-        this->_hitPoint += amount;
-        this->_energyPoint -=1;
-        std::cout << "ClapTrap" << " " << this->_name << " is repaired " << amount << " points of HP" << std::endl;
-        std::cout << "ClapTrap" << " " << this->_name << " HP : " << this->_hitPoint << std::endl;
-    }
+    if (this->checkCanAction() == false) return ; 
+
+    this->_hitPoint += amount;
+    this->_energyPoint -=1;
+    std::cout << "ClapTrap" << " " << this->_name << " is repaired " << amount << " points of HP" << std::endl;
+    std::cout << "ClapTrap" << " " << this->_name << " HP : " << this->_hitPoint << std::endl;
 }

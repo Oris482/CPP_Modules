@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 23:20:31 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/20 22:29:30 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/21 21:03:15 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class ClapTrap {
         ClapTrap(const ClapTrap &src);
         ClapTrap& operator= (const ClapTrap &src);
 
-        ClapTrap(std::string name);
+        explicit ClapTrap(const std::string name);
 
         void printMyStatus(void) const;
         bool checkCanAction(void) const;

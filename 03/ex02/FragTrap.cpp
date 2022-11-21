@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 18:06:48 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/21 18:44:03 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/21 21:05:18 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,22 @@ FragTrap::FragTrap(const std::string name): ClapTrap(name, 100, 100, 30) {
 }
 
 void FragTrap::attack(const std::string &target) {
-    if (this->checkCanAction()) {
-        this->_energyPoint -=1;
-        std::cout << "FragTrap" << " " << this->_name << " attacks " << target \
-                    << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
-    }
+    if (this->checkCanAction() == false) return ; 
+
+    this->_energyPoint -=1;
+    std::cout << "FragTrap" << " " << this->_name << " attacks " << target \
+                << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
 }
 
 void FragTrap::highFivesGuys(void) {
+    if (this->checkCanAction() == false) return ;
     if (*this->_highFiveCounter == UINT_MAX) {
         std::cout << "FragTrap" << " " << this->_name << " can't no more highfives" << std::endl;
         return ;
     }
+
     (*this->_highFiveCounter)++;
+    this->_energyPoint -= 1;
     std::cout << "FragTrap" << " " << this->_name << " highifives with guys! (total: " \
                     << this->getHighFiveCount() << " times)" << std::endl;
 }

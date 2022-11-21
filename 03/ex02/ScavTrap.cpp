@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 21:17:28 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/21 18:42:31 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/21 20:59:47 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,22 @@ ScavTrap::ScavTrap(std::string name): ClapTrap(name) {
 }
 
 void ScavTrap::attack(const std::string &target) {
-    if (this->checkCanAction()) {
-        this->_energyPoint -=1;
-        std::cout << "ScavTrap" << " " << this->_name << " attacks " << target \
-                    << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
-    }
+    if (this->checkCanAction() == false) return ; 
+
+    this->_energyPoint -=1;
+    std::cout << "ScavTrap" << " " << this->_name << " attacks " << target \
+                << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
 }
 
 void ScavTrap::guardGate(void) {
+    if (this->checkCanAction() == false) return ;
+    if (this->_gateKeeperMode) {
+        std::cout << "ScavTrap" << " " << this->_name << " " << "is already Gatekeeper mode" << std::endl;
+        return ;
+    }
+
     this->_gateKeeperMode = true;
+    this->_energyPoint -= 1;
     std::cout << "ScavTrap" << " " << this->_name << " " << "is now in Gatekeeper mode" << std::endl;
 }
 

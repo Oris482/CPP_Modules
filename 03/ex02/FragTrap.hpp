@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:53:48 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/21 18:29:57 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/21 21:01:50 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class FragTrap: public ClapTrap {
         FragTrap(const FragTrap &src);
         FragTrap& operator= (const FragTrap &src);
 
-        FragTrap(const std::string name);
+        explicit FragTrap(const std::string name);
 
         void attack(const std::string &target);
 
