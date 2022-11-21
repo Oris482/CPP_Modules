@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 21:17:28 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/21 18:21:34 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:44:37 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ScavTrap::~ScavTrap(void) {
 }
 
 ScavTrap::ScavTrap(const ScavTrap &src): ClapTrap(src) {
-    std::cout << "ScavTrap" << " " << "Copy " << MSG_CONSTRUCTOR << std::endl;
+    std::cout << "ScavTrap" << " " << "Copy" << MSG_CONSTRUCTOR << std::endl;
     *this = src;
 }
 

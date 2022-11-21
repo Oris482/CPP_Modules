@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 23:20:30 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/20 22:30:49 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:44:41 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ ClapTrap::~ClapTrap(void) {
 }
 
 ClapTrap::ClapTrap(const ClapTrap &src) {
-    std::cout << "Copy " << MSG_CONSTRUCTOR << std::endl;
+    std::cout << "Copy" << MSG_CONSTRUCTOR << std::endl;
     *this = src;
 }
 
