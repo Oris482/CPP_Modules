@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 22:49:55 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/22 00:35:07 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/22 00:46:11 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ Dog::Dog(const Dog &src) {
 Dog& Dog::operator= (const Dog &src) {
     std::cout << "Dog" << " " << "Copy assignment" << MSG_OPERATOR << std::endl;
     this->_type = src._type;
+    if (this->_brain) delete this->_brain;
     this->_brain = new Brain();
     *(this->_brain) = *src._brain;
     return *this;

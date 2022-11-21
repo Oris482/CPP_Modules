@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:01:01 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/22 00:16:15 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/22 00:46:06 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ Cat::Cat(const Cat &src) {
 Cat& Cat::operator= (const Cat &src) {
     std::cout << "Cat" << " " << "Copy assignment" << MSG_OPERATOR << std::endl;
     this->_type = src._type;
+    if (this->_brain) delete this->_brain;
     this->_brain = new Brain();
     for (int i = 0; i <= src._brain->getNewestIdeaIdx(); ++i) {
         this->_brain->addSingleIdea(src._brain->getSingleIdea(i));
