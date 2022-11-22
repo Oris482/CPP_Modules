@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:59:51 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/22 18:40:04 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/22 22:17:14 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ Fixed Fixed::operator--(int) {
     return temp;
 }
 
-const int& Fixed::getRawBits(void) const {
+int Fixed::getRawBits(void) const {
     // std::cout << "getRawBits" << MSG_MEM_FUNC << std::endl;
     return this->_fixedPointValue;
 }
