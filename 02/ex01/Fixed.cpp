@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:59:51 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/19 15:38:47 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:37:58 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ Fixed::Fixed(const float num): _fixedPointValue((int)roundf(num * (1 << _fractio
     std::cout << "Float" << MSG_CONSTRUCTOR << std::endl;
 }
 
-int Fixed::getRawBits(void) const {
+const int& Fixed::getRawBits(void) const {
     // std::cout << "getRawBits" << MSG_MEM_FUNC << std::endl;
     return this->_fixedPointValue;
 }

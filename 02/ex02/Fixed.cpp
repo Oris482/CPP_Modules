@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:59:51 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/19 19:17:35 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:32:45 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ Fixed Fixed::operator--(int) {
     return temp;
 }
 
-int Fixed::getRawBits(void) const {
+const int& Fixed::getRawBits(void) const {
     // std::cout << "getRawBits" << MSG_MEM_FUNC << std::endl;
     return this->_fixedPointValue;
 }
@@ -135,21 +135,25 @@ float Fixed::getEpsilon(void) {
 }
 
 Fixed& Fixed::min(Fixed &A, Fixed &B) {
+    std::cout << "reference parameters, return value" << std::endl;
     if (A.getRawBits() < B.getRawBits()) return A;
     return B;
 }
 
 const Fixed& Fixed::min(const Fixed &A, const Fixed &B) {
+    std::cout << "const reference parameters, return value" << std::endl;
     if (A.getRawBits() < B.getRawBits()) return A;
     return B;
 }
 
 Fixed& Fixed::max(Fixed &A, Fixed &B) {
+    std::cout << "reference parameters, return value" << std::endl;
     if (A.getRawBits() > B.getRawBits()) return A;
     return B;
 }
 
 const Fixed& Fixed::max(const Fixed &A, const Fixed &B) {
+    std::cout << "const reference parameters, return value" << std::endl;
     if (A.getRawBits() > B.getRawBits()) return A;
     return B;
 }

@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 13:59:53 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/19 20:51:50 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:49:36 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Fixed {
         ~Fixed(void);
         Fixed(const Fixed &src);
         Fixed& operator= (const Fixed &src);
-        int getRawBits(void) const;
+        const int& getRawBits(void) const;
         void setRawBits(int const raw);
 };
 
