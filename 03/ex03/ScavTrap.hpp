@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 21:17:26 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/21 20:38:25 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:13:48 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ class ScavTrap: virtual public ClapTrap {
     protected:
         ScavTrap(void);
         bool _gateKeeperMode;
+        static const unsigned int _initialHitPoint_ = 100;
+        static const unsigned int _initialEnergyPoint_ = 50;
+        static const unsigned int _initialAttackDamage_ = 20;
 
     public:
         ~ScavTrap(void);

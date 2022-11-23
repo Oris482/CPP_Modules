@@ -6,12 +6,14 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 20:02:24 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/21 20:51:14 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:18:32 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include "DiamondTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 DiamondTrap::~DiamondTrap(void) {
     std::cout << "DiamondTrap" << " " << this->_name << " " << MSG_DESTRUCTOR << std::endl;
@@ -38,9 +40,9 @@ DiamondTrap& DiamondTrap::operator= (const DiamondTrap &src) {
 DiamondTrap::DiamondTrap(const std::string name): ClapTrap(name + "_clap_name"), FragTrap(name), ScavTrap(name) {
     std::cout << "DiamondTrap" << " " << name << MSG_CONSTRUCTOR << std::endl;
     this->_name = name;
-    this->_hitPoint = 100;
-    this->_energyPoint = 50;
-    this->_attackDamage = 30;
+    this->_hitPoint = FragTrap::_initialHitPoint_;
+    this->_energyPoint = ScavTrap::_initialEnergyPoint_;
+    this->_attackDamage = FragTrap::_initialAttackDamage_;
 }
 
 void DiamondTrap::whoAmI(void) const {

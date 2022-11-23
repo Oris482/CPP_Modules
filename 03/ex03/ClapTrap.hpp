@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 23:20:31 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/21 21:06:40 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:12:50 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ class ClapTrap {
         unsigned int _hitPoint;
         unsigned int _energyPoint;
         unsigned int _attackDamage;
+        static const unsigned int _initialHitPoint_ = 10;
+        static const unsigned int _initialEnergyPoint_ = 10;
+        static const unsigned int _initialAttackDamage_ = 0;
 
     public:
         virtual ~ClapTrap(void);

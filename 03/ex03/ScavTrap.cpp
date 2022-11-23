@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 21:17:28 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/21 21:07:10 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:14:14 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,8 @@ ScavTrap& ScavTrap::operator= (const ScavTrap &src) {
     return *this;
 }
 
-ScavTrap::ScavTrap(const std::string name): ClapTrap(name) {
+ScavTrap::ScavTrap(const std::string name): ClapTrap(name, _initialHitPoint_, _initialEnergyPoint_, _initialAttackDamage_) {
     std::cout << "ScavTrap" << " " << this->_name << MSG_CONSTRUCTOR << std::endl;
-    this->_hitPoint = 100;
-    this->_energyPoint = 50;
-    this->_attackDamage = 20;
     this->_gateKeeperMode = false;
 }
 

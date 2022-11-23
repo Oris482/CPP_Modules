@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/19 23:20:30 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/21 21:06:53 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:13:25 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ ClapTrap& ClapTrap::operator= (const ClapTrap &src) {
     return *this;
 }
 
-ClapTrap::ClapTrap(const std::string name): _name(name), _hitPoint(10), _energyPoint(10), _attackDamage(0) {
+ClapTrap::ClapTrap(const std::string name): _name(name), _hitPoint(_initialHitPoint_), \
+                                            _energyPoint(_initialEnergyPoint_), _attackDamage(_initialAttackDamage_) {
     std::cout << "ClapTrap" << " " << this->_name << MSG_CONSTRUCTOR << std::endl;
 }
 

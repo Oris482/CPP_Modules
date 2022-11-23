@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 18:06:48 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/21 20:45:12 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:17:51 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ FragTrap& FragTrap::operator= (const FragTrap &src) {
     return *this;
 }
 
-FragTrap::FragTrap(const std::string name): ClapTrap(name, 100, 100, 30) {
+FragTrap::FragTrap(const std::string name): ClapTrap(name, _initialAttackDamage_, _initialEnergyPoint_, _initialAttackDamage_) {
     std::cout << "FragTrap" << " " << this->_name << MSG_CONSTRUCTOR << std::endl;
     this->_highFiveCounter = new unsigned int;
     *this->_highFiveCounter = 0;
