@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 22:49:55 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/22 00:46:11 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/25 20:40:23 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Dog::~Dog(void) {
     delete this->_brain;
 }
 
-Dog::Dog(const Dog &src) {
+Dog::Dog(const Dog &src): _brain((NULL)) {
     std::cout << "Dog" << " " << "Copy" << MSG_CONSTRUCTOR << std::endl;
     *this = src;
 }

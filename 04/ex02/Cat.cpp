@@ -6,10 +6,11 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 23:01:01 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/22 00:46:06 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/25 20:40:12 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cstddef>
 #include <iostream>
 #include "Cat.hpp"
 
@@ -23,7 +24,7 @@ Cat::~Cat(void) {
     delete this->_brain;
 }
 
-Cat::Cat(const Cat &src) {
+Cat::Cat(const Cat &src): _brain((NULL)) {
     std::cout << "Cat" << " " << "Copy" << MSG_CONSTRUCTOR << std::endl;
     *this = src;
 }
