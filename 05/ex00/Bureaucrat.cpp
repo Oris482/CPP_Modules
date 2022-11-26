@@ -6,14 +6,13 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:12:21 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/26 16:30:13 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/26 18:23:54 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <ostream>
 #include "Bureaucrat.hpp"
-#include "GradeTooHighException.hpp"
 
 const GradeTooHighException Bureaucrat::GradeTooHighException;
 const GradeTooLowException Bureaucrat::GradeTooLowException;
