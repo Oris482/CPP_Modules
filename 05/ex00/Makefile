@@ -6,14 +6,15 @@
 #    By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 13:30:48 by jaesjeon          #+#    #+#              #
-#    Updated: 2022/11/22 00:48:07 by jaesjeon         ###   ########.fr        #
+#    Updated: 2022/11/26 15:51:24 by jaesjeon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors
+ADDIFLAGS = -fsanitize=address
 RM = rm -rvf
-NAME = NoJustAnimal
+NAME = IGotaJob
 
 INCS_DIR = ./
 INCS =${notdir ${wildcard ${SRC_INCS_DIR}*.hpp}}
@@ -28,7 +29,7 @@ OBJS = ${addprefix ${OBJS_DIR}, ${SRCS:.cpp=.o}}
 ${OBJS_DIR}%.o: ${SRCS_DIR}%.cpp
 	@echo "# Start compling"
 	mkdir -p ${dir $@}
-	${CC} ${CPPFLAGS} -I${INCS_DIR} -o $@ -c $<
+	${CC} ${CPPFLAGS} ${ADDIFLAGS} -I${INCS_DIR} -o $@ -c $<
 
 .PHONY: all clean fclean re
 
@@ -36,7 +37,7 @@ all: ${NAME}
 
 ${NAME}: ${OBJS} ${INCS}
 	@echo "# Start Linking"
-	${CC} ${CPPFLAGS} -I${INCS_DIR} -o ${NAME} ${OBJS}
+	${CC} ${CPPFLAGS} ${ADDIFLAGS} -I${INCS_DIR} -o ${NAME} ${OBJS}
 
 clean: 
 	@echo "# Deleted files"
