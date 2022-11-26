@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 21:34:16 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/26 22:52:39 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/26 22:58:42 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,18 @@ bool ShrubberyCreationForm::plantTree(const std::string formName) {
     std::ofstream fout;
     fin.open(inFilename.c_str());
     fout.open(outFilename.c_str(), std::fstream::trunc);
-    if (!fin.is_open() || !fout.is_open()) return false;
+    if (!fin.is_open() || !fout.is_open()) {
+        if (fout.is_open()) std::remove(outFilename.c_str());
+        return false;
+    }
     
     std::string line;
     while (fin.good()) {
         std::getline(fin, line);
-        if (!fin.eof() && fin.fail()) return false;
+        if (!fin.eof() && fin.fail()) {
+            std::remove(outFilename.c_str());
+            return false;
+        }
         fout << line << "\n";
         line.clear();
     }
