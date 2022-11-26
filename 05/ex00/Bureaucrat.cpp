@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:12:21 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/26 16:18:04 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/26 16:30:13 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,11 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &src) {
     return *this;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, const unsigned int grade): _name(name), _grade(grade) {
-    if (this->getGrade() < maxGrade) throw Bureaucrat::GradeTooHighException;
-    if (this->getGrade() > minGrade) throw Bureaucrat::GradeTooLowException;
+Bureaucrat::Bureaucrat(const std::string name, const int grade): _name(name) {
+    if (grade < (int)maxGrade) throw Bureaucrat::GradeTooHighException;
+    if (grade > (int)minGrade) throw Bureaucrat::GradeTooLowException;
     
+    this->_grade = grade;
     std::cout << "Bureaucrat" << " " << "argv" << MSG_CONSTRUCTOR << std::endl;
 }
 

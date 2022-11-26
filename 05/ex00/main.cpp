@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 22:07:29 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/26 15:50:15 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/26 16:31:07 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,12 @@
 #include "Bureaucrat.hpp"
 
 int main(void) {
+
+    // initial grade exception error
+    // {
+    //     Bureaucrat failPerson("exception", -50);
+    // }
+    
     {
         Bureaucrat staticPerson("staticPerson", 3);
         std::cout << staticPerson << std::endl;

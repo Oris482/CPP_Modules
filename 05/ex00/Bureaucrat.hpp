@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:12:20 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/26 16:17:07 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/26 16:29:37 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Bureaucrat {
         Bureaucrat(const Bureaucrat &src);
         Bureaucrat& operator= (const  Bureaucrat &src);
 
-        explicit Bureaucrat(const std::string name, const unsigned int grade);
+        explicit Bureaucrat(const std::string name, const int grade);
 
         std::string getName(void) const;
         unsigned int getGrade(void) const;
