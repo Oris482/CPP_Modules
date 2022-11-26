@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:12:21 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/26 15:49:26 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/26 15:54:08 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,13 +46,13 @@ unsigned int Bureaucrat::getGrade(void) const {
 }
 
 void Bureaucrat::promote(void) {
-    if (this->getGrade() == maxGrade) throw this->GradeTooHighException;
+    if (this->getGrade() == maxGrade) throw Bureaucrat::GradeTooHighException;
 
     --this->_grade;
 }
 
 void Bureaucrat::demote(void) {
-    if (this->getGrade() == minGrade) throw this->GradeTooLowException;
+    if (this->getGrade() == minGrade) throw Bureaucrat::GradeTooLowException;
 
     ++this->_grade;
 }
