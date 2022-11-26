@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 16:14:53 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/26 19:14:37 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/26 21:05:39 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ class Form {
         Form(const Form &src);
         Form& operator= (const Form &src);
 
-        Form(const std::string name, const int gradeToSign, const int gradeToExecute);
+        explicit Form(const std::string name, const int gradeToSign, const int gradeToExecute);
     
         const std::string& getName(void) const;
         bool getIsSigned(void) const;
