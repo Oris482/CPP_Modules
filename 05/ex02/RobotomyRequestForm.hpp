@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 22:02:07 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/26 22:10:25 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/27 16:25:11 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ class RobotomyRequestForm: public Form {
     private:
         RobotomyRequestForm(void);
         RobotomyRequestForm& operator= (const RobotomyRequestForm &src);
+
+        static void createRandomSeed(void);
+        static bool isRandomSeedCreated;
 
         static const unsigned int initialRequireSignGrade = 72;
         static const unsigned int initialRequireExecuteGrade = 45;
