@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 22:03:51 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/27 17:38:11 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/27 18:32:17 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,6 @@ void RobotomyRequestForm::execute(const Bureaucrat &executor) const {
     if (rand() % 2 == 1) {
         std::cout << this->getName() << " is robotomized!" << std::endl;
     } else {
-        std::cout << "Something wrong...beep--beep--" << std::endl;
+        std::cout << "* Something wrong...beep--beep-- *" << std::endl;
     }
 }

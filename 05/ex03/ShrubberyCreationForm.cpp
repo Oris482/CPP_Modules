@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 21:34:16 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/27 17:38:14 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/27 18:33:10 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,27 +29,37 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string name): Form(name,
 }
 
 bool ShrubberyCreationForm::plantTree(const std::string formName) {
-    const std::string inFilename = "ReferenceTree";
     const std::string outFilename = formName + "_shrubbery";
-    std::ifstream fin;
     std::ofstream fout;
-    fin.open(inFilename.c_str());
     fout.open(outFilename.c_str(), std::fstream::trunc);
-    if (!fin.is_open() || !fout.is_open()) {
-        if (fout.is_open()) std::remove(outFilename.c_str());
-        return false;
-    }
+    if (!fout.is_open()) return false;
     
-    std::string line;
-    while (fin.good()) {
-        std::getline(fin, line);
-        if (!fin.eof() && fin.fail()) {
-            std::remove(outFilename.c_str());
-            return false;
-        }
-        fout << line << "\n";
-        line.clear();
-    }
+    std::string referenceTree = "           *             ,\n"
+                                "                       _/^\\_\n"
+                                "                      <     >\n"
+                                "     *                 /.-.\\         *\n"
+                                "              *        `/&\\`                   *\n"
+                                "                      ,@.*;@,\n"
+                                "                     /_o.I %_\\    *\n"
+                                "        *           (`'--:o(_@;\n"
+                                "                   /`;--.,__ `')             *\n"
+                                "                  ;@`o % O,*`'`&\\\n"
+                                "            *    (`'--)_@ ;o %'()\\      *\n"
+                                "                 /`;--._`''--._O'@;\n"
+                                "                /&*,()~o`;-.,_ `\"\"`)\n"
+                                "     *          /`,@ ;+& () o*`;-';\\\n"
+                                "               (`\"\"--.,_0 +% @' &()\\\n"
+                                "               /-.,_    ``''--....-'`)  *\n"
+                                "          *    /@%;o`:;'--,.__   __.'\\\n"
+                                "              ;*,&(); @ % &^;~` `o;@();         *\n"
+                                "              /(); o^~; & ().o@*&`;&%O\\\n"
+                                "        jgs   `\"=\"==\"\"==,,,.,=\"==\"===\"`\n"
+                                "           __.----.(\\-''#####---...___...-----._\n"
+                                "         '`         \\)_`\"\"\"\"\"`\n"
+                                "                 .--' ')\n"
+                                "               o(  )_-\\\n"
+                                "                 `\"\"\"` `";
+    fout << referenceTree;
     return true;
 }
 
