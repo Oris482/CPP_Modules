@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 22:02:56 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/26 22:10:31 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/27 17:41:46 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ class PresidentialPardonForm: public Form {
         static const unsigned int initialRequireExecuteGrade = 5;
     
     public:
-        ~PresidentialPardonForm(void);
+        virtual ~PresidentialPardonForm(void);
         PresidentialPardonForm(const PresidentialPardonForm &src);
 
-        PresidentialPardonForm(const std::string name);
+        explicit PresidentialPardonForm(const std::string name);
 
         void execute(Bureaucrat const &executor) const;
 };

@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 22:02:56 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/26 22:10:31 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/27 17:42:25 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class PresidentialPardonForm: public Form {
         ~PresidentialPardonForm(void);
         PresidentialPardonForm(const PresidentialPardonForm &src);
 
-        PresidentialPardonForm(const std::string name);
+        explicit PresidentialPardonForm(const std::string name);
 
         void execute(Bureaucrat const &executor) const;
 };

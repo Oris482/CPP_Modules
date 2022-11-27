@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 22:02:07 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/27 16:25:11 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/27 17:42:31 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class RobotomyRequestForm: public Form {
         ~RobotomyRequestForm(void);
         RobotomyRequestForm(const RobotomyRequestForm &src);
 
-        RobotomyRequestForm(const std::string name);
+        explicit RobotomyRequestForm(const std::string name);
 
         void execute(Bureaucrat const &executor) const;
 };

@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/26 21:32:21 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/26 22:43:04 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/27 17:42:36 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class ShrubberyCreationForm: public Form {
         ~ShrubberyCreationForm(void);
         ShrubberyCreationForm(const ShrubberyCreationForm &src);
 
-        ShrubberyCreationForm(const std::string name);
+        explicit ShrubberyCreationForm(const std::string name);
 
         void execute(Bureaucrat const &executor) const;
 };

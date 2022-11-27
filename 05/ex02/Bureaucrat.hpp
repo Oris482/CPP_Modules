@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 17:12:20 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/26 22:00:51 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/27 16:58:58 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class Bureaucrat {
 
         const std::string _name;
         unsigned int _grade;
+        void printFormErrorReason(const std::string formName, const std::string action, const std::string reason) const;
         
         static const unsigned int maxGrade = 1;
         static const unsigned int minGrade = 150;
@@ -48,7 +49,6 @@ class Bureaucrat {
         unsigned int getGrade(void) const;
         void promote(void);
         void demote(void);
-        void printFormErrorReason(const std::string formName, const std::string action, const std::string reason) const;
         void signForm(Form &form) const;
         void executeForm(Form const &form);
 };
