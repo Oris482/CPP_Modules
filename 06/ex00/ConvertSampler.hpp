@@ -6,13 +6,15 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 19:10:32 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/27 20:02:34 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/28 14:23:23 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #ifndef CONVERTSAMPLER_H__
 # define CONVERTSAMPLER_H__
+
+# include <stdexcept>
 
 class ConvertSampler {
     private:

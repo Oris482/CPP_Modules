@@ -6,14 +6,17 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 19:10:33 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/27 20:01:27 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/28 19:57:21 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include <iomanip>
+#include <sstream>
 #include <string>
-#include <stdexcept>
 #include <cerrno>
+#include <cmath>
+#include <climits>
 #include "ConvertSampler.hpp"
 
 #define SAME 0
@@ -77,7 +80,10 @@ void ConvertSampler::input(const char *argv) {
             throw ConvertSampler::OutOfRange;
         }
         std::string remain = static_cast<std::string>(tempRemainStr);
-        if (remain.compare("f") != SAME) throw ConvertSampler::InvalidInput;
+        if (remain.length() > 1) throw ConvertSampler::InvalidInput;
+
+        std::string input = static_cast<std::string>(argv);
+        if (input.length() == 1 && remain.length() == 1) convertedValue = static_cast<double>(argv[0]);
     }
     catch (std::out_of_range &e) {
         this->_outOfRangeFlag = true;
@@ -87,6 +93,7 @@ void ConvertSampler::input(const char *argv) {
         this->_invalidInputFlag = true;
         return ;
     }
+
     this->_convertedChar = static_cast<char>(convertedValue);
     this->_convertedInt = static_cast<int>(convertedValue);
     this->_convertedFloat = static_cast<float>(convertedValue);
@@ -94,21 +101,53 @@ void ConvertSampler::input(const char *argv) {
 }
 
 void ConvertSampler::printChar(void) const {
-    std::cout << this->getChar();
+    if (this->getDouble() >= 0 && this->getDouble() <= 31)
+        std::cout << "Non displayable";
+    else if (this->getDouble() < 0 || this->getDouble() > 127)
+        std::cout << "impossible";
+    else {
+        switch (this->getChar()) {
+            case 127:
+                std::cout << "<DEL>";
+                break ;
+            default:
+                std::cout << "'" << this->getChar() << "'";
+        }
+    }
 }
 
 void ConvertSampler::printInt(void) const {
-    std::cout << this->getInt();
+    if (this->getDouble() > INT_MAX || this->getDouble() < INT_MIN)
+        std::cout << "impossible";
+    else
+        std::cout << this->getInt();
 }
 
 void ConvertSampler::printFloat(void) const {
-    std::cout << this->getFloat();
-    if (this->getFloat() == 0) std::cout << ".0";
-    std::cout << "f";
+    if (isnan(this->getFloat()) || isinf(this->getFloat())) {
+        std::cout << std::showpos << this->getFloat() << "f";
+    } else if (this->getFloat() == static_cast<int>(this->getFloat())) {
+        std::cout << this->getFloat() << ".0f";
+    } else {
+        std::cout << this->getFloat() << "f";
+    }
 }
 
 void ConvertSampler::printDouble(void) const {
-    std::cout << this->getDouble();
+    std::stringstream ss;
+    std::string convertedToStr;
+    
+    ss << getDouble();
+    ss >> convertedToStr;
+    if (convertedToStr.compare("nan") == SAME || convertedToStr.compare("inf") == SAME) {
+        std::cout << std::showpos << this->getDouble();
+    }
+    else if (this->getDouble() == static_cast<int>(this->getDouble())) {
+        std::cout << this->getDouble() << ".0";
+    } else {
+        std::cout << this->getDouble();
+    }
+
 }
 
 void ConvertSampler::printSampler(void) const {
