@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 03:06:31 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/29 04:41:22 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/29 18:38:00 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,16 @@ int main(int argc, char *argv[])
     delete [] mirror;//
 
     // custom test
-    std::cout << "##################################" << std::cout;
+    std::cout << "##################################" << std::endl;
     if (argc > 1)
     {
-        Array<std::string> multiStr[MAX_VAL];
-        for (int i = 0; i < argc; ++i) {
-            multiStr[i] = static_cast<std::string>(argv[i + 1]);
+        Array<std::string> multiStr(argc - 1);
+        for (int i = 0; i < argc - 1; ++i) {
+            multiStr[i] = std::string(argv[i + 1]);
+        }
+        std::cout << "Print array" << std::endl;
+        for (int i = 0; i < argc - 1; ++i) {
+            std::cout << i << ": " << multiStr[i] << std::endl;
         }
     }
     return 0;
