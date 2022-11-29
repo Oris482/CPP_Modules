@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 03:06:31 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/29 18:38:00 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/29 19:05:48 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,12 @@ int main(int argc, char *argv[])
         for (int i = 0; i < argc - 1; ++i) {
             std::cout << i << ": " << multiStr[i] << std::endl;
         }
+        
+        std::cout << std::endl;
+        const Array<std::string> constArray = multiStr;
+        for (int i = 0; i < argc - 1; ++i) {
+            std::cout << i << ": " << constArray[i] << std::endl;
+        }        
     }
     return 0;
 }
