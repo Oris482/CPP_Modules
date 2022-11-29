@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 19:10:33 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/28 19:57:21 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/29 15:58:37 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void ConvertSampler::input(const char *argv) {
 void ConvertSampler::printChar(void) const {
     if (this->getDouble() >= 0 && this->getDouble() <= 31)
         std::cout << "Non displayable";
-    else if (this->getDouble() < 0 || this->getDouble() > 127)
+    else if (isnan(this->getDouble()) || this->getDouble() < 0 || this->getDouble() > 127)
         std::cout << "impossible";
     else {
         switch (this->getChar()) {
@@ -117,7 +117,7 @@ void ConvertSampler::printChar(void) const {
 }
 
 void ConvertSampler::printInt(void) const {
-    if (this->getDouble() > INT_MAX || this->getDouble() < INT_MIN)
+    if (isnan(this->getDouble()) || this->getDouble() > INT_MAX || this->getDouble() < INT_MIN)
         std::cout << "impossible";
     else
         std::cout << this->getInt();
