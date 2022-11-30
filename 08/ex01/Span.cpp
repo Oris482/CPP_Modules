@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:40:59 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/30 17:43:10 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:37:42 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,15 @@ void Span::addNumber(const unsigned int num) {
     if (this->getFreeSpace() == 0) throw Span::CapacityFull;
 
     this->_intVec.push_back(num);
+}
+
+void Span::addNumber(const unsigned int start, const unsigned int end) {
+    if (start > end) throw std::out_of_range("Parameter error: Out of range");
+    if (this->getFreeSpace() < end - start + 1) throw Span::CapacityFull;
+
+    for (unsigned int i = start; i <= end; i++) {
+        this->_intVec.push_back(i);
+    }
 }
 
 void Span::addNumber(iterator begin, iterator end) {

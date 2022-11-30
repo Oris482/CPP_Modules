@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 15:40:39 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/30 17:28:05 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:32:46 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ class Span {
         
         unsigned int getFreeSpace(void) const;
         void addNumber(const unsigned int num);
+        void addNumber(const unsigned int start, const unsigned int end);
         void addNumber(iterator begin, iterator end);
         unsigned int shortestSpan(void) const;
         unsigned int longestSpan(void) const;  
