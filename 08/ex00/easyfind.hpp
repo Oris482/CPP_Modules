@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 14:58:21 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/30 15:39:20 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/11/30 20:17:58 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@ template <typename T>
 typename T::iterator easyfind(T& container, const int target) {
     typedef typename T::iterator iterator;
 
-    iterator it = container.begin();
+    iterator it;
     if (container.empty()) throw std::runtime_error("Empty container");
-    for (; it != container.end(); ++it) {
-        if (*it == target) return it;
-    }
-    throw std::runtime_error("Not Found");
+    it = std::find(container.begin(), container.end(), target);
+    if (it == container.end()) throw std::runtime_error("Not Found");
+    return it;
 }
 
 template <typename T>
