@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 03:19:02 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/29 18:36:31 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:46:50 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,30 @@ int main(void) {
         int a = 2;
         int b = 3;
         ::swap( a, b );
-        // ::swap( &a, &b );
         std::cout << "a = " << a << ", b = " << b << std::endl;
         std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
         std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
         std::string c = "chaine1";
         std::string d = "chaine2";
         ::swap(c, d);
-        // ::swap(&c, &d);
         std::cout << "c = " << c << ", d = " << d << std::endl;
         std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
         std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
     }
     std::cout << "########################################" << std::endl;
+    
     // custom test case
     {
         std::cout << "############## SWAP TEST ###############" << std::endl;
         int intArray[2] = {2, 4};
         std::cout << intArray[0] << ", " << intArray[1] << std::endl;
-        swap(&intArray[0], &intArray[1]);
+        swap(intArray[0], intArray[1]);
         std::cout << intArray[0] << ", " << intArray[1] << std::endl;
 
         char charArray[5] = {'a', 'd', 'c', 'b', 'e'};
         for (int i = 0; i < 5; ++i) {std::cout << charArray[i];}
         std::cout << std::endl;
-        swap(&charArray[1], &charArray[3]);
+        swap(charArray[1], charArray[3]);
         for (int i = 0; i < 5; ++i) {std::cout << charArray[i];}
         std::cout << std::endl;
     }

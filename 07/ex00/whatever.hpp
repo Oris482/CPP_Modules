@@ -6,29 +6,18 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 03:13:23 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/29 18:36:35 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:42:31 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include <utility>
 #ifndef WHATEVER_H__
 # define WHATEVER_H__
 
 template <typename T>
-void swap(T* first, T* second) {
-    T temp;
-
-    temp = *first;
-    *first = *second;
-    *second = temp;
-}
-
-template <typename T>
 void swap(T& first, T& second) {
-    T temp;
+    T temp(first);
 
-    temp = first;
     first = second;
     second = temp;
 }
