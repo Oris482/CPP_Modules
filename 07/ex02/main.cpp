@@ -6,7 +6,7 @@
 /*   By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 03:06:31 by jaesjeon          #+#    #+#             */
-/*   Updated: 2022/11/29 19:05:48 by jaesjeon         ###   ########.fr       */
+/*   Updated: 2022/12/04 20:31:49 by jaesjeon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,20 +68,42 @@ int main(int argc, char *argv[])
     std::cout << "##################################" << std::endl;
     if (argc > 1)
     {
-        Array<std::string> multiStr(argc - 1);
-        for (int i = 0; i < argc - 1; ++i) {
-            multiStr[i] = std::string(argv[i + 1]);
+        {
+            Array<std::string> multiStr(argc - 1);
+            for (int i = 0; i < argc - 1; ++i) {
+                multiStr[i] = std::string(argv[i + 1]);
+            }
+            std::cout << "Print array" << std::endl;
+            for (int i = 0; i < argc - 1; ++i) {
+                std::cout << i << ": " << multiStr[i] << std::endl;
+            }
+            
+            std::cout << std::endl;
+            const Array<std::string> constArray = multiStr;
+            for (int i = 0; i < argc - 1; ++i) {
+                std::cout << i << ": " << constArray[i] << std::endl;
+            }
         }
-        std::cout << "Print array" << std::endl;
-        for (int i = 0; i < argc - 1; ++i) {
-            std::cout << i << ": " << multiStr[i] << std::endl;
+        std::cout << "##################################" << std::endl;
+        {
+            Array<std::string>* multiStr;
+            multiStr = new Array<std::string>(argc - 1);
+            for (int i = 0; i < argc - 1; ++i) {
+                (*multiStr)[i] = std::string(argv[i + 1]);
+            }
+            std::cout << "Print array" << std::endl;
+            for (int i = 0; i < argc - 1; ++i) {
+                std::cout << i << ": " << (*multiStr)[i] << std::endl;
+            }
+            
+            std::cout << std::endl;
+            Array<std::string> copyArray = *multiStr;
+            delete multiStr;
+            for (int i = 0; i < argc - 1; ++i) {
+                std::cout << i << ": " << copyArray[i] << std::endl;
+            }
         }
-        
-        std::cout << std::endl;
-        const Array<std::string> constArray = multiStr;
-        for (int i = 0; i < argc - 1; ++i) {
-            std::cout << i << ": " << constArray[i] << std::endl;
-        }        
     }
+    system ("leaks MakeArray");
     return 0;
 }
