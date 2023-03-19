@@ -6,13 +6,13 @@
 #    By: jaesjeon <jaesjeon@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 13:30:48 by jaesjeon          #+#    #+#              #
-#    Updated: 2023/03/17 21:33:16 by jaesjeon         ###   ########.fr        #
+#    Updated: 2023/03/19 20:52:04 by jaesjeon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic-errors
-ADDIFLAGS = -fsanitize=address
+ADDIFLAGS = -fsanitize=address -g
 RM = rm -rvf
 
 INCS_DIR = ./
