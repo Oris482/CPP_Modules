@@ -22,7 +22,12 @@ Database& Database::operator= (const Database& src) {
 bool Database::insert(const std::string date, const std::string value) {
     if (_database.find(date) != _database.end()) return false;
 
-    _database.insert(make_pair(date, value));
+    try {
+        _database.insert(make_pair(date, value));
+    } catch (std::exception& e) {
+        e.what();
+        exit(1);
+    }
     ++_dataSize;
     return true;
 }
