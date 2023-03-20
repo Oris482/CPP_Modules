@@ -10,7 +10,7 @@
 
 class Database {
     protected:
-        std::size_t _dataSize;
+        size_t _dataSize;
         std::map<std::string, std::string> _database;
 
     public:
@@ -20,6 +20,7 @@ class Database {
         Database& operator= (const Database& src);
 
         bool insert(const std::string date, const std::string value);
+        size_t getDataSize(void) const;
         void printAllData(void) const;
         virtual double getValue(const std::string date) const = 0;
         virtual bool inputFile(const std::string file) = 0;

@@ -23,14 +23,14 @@ bool BitcoinExchange::setInputFile(const std::string file) {
 }
 
 void BitcoinExchange::startExchange(const PriceDatabase& priceDatabase) {
-    if (!_ifs.is_open()) return ;
+    if (!_ifs.is_open() ||  priceDatabase.getDataSize() == 0) return ;
 
     char line[51];
 
     memset(line, 0, 51);
     try {
         while (_ifs.getline(line, 50) && _ifs.good()) {
-            StringSpliter spliter(line, AMOUNT_DELIMITER);
+            StringSpliter spliter(line, INPUT_DELIMITER);
 
             if (!spliter.getSuccessFlag()) {
                 std::cout << "Wrong format: " << line << std::endl;

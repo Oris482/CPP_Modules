@@ -65,6 +65,14 @@ bool FormatValidator::isValidDay(int year, int month, int day) {
     return (day > 0 && day <= maxDay);
 }
 
+bool FormatValidator::isValidExtension(const std::string &filename, const std::string &extension) {
+    if (filename.length() <= extension.length()) return false;
+    if (filename.find(extension, filename.length() - extension.length() - 1) == std::string::npos)
+        return false;
+
+    return true;
+}
+
 bool FormatValidator::isValidDate(const std::string& date) {
     StringSpliter yearSpliter(date, DATE_SEPARATOR);
     int year, month, day;

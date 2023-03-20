@@ -32,3 +32,7 @@ void Database::printAllData(void) const {
         std::cout << it->first << "," << it->second << "\n";
     }
 }
+
+size_t Database::getDataSize(void) const {
+    return _dataSize;
+}

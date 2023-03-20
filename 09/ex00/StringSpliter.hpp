@@ -5,8 +5,8 @@
 
 # include <string>
 
-# define AMOUNT_DELIMITER " | "
-# define PRICE_DELIMITER ","
+# define INPUT_DELIMITER " | "
+# define CSV_DELIMITER ","
 
 class StringSpliter {
     private:

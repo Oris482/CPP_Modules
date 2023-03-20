@@ -13,6 +13,7 @@ struct FormatValidator {
     static bool isValidMonth(int month);
     static bool isValidDay(int year, int month, int day);
 
+    static bool isValidExtension(const std::string& filename, const std::string& extension);
     static bool isValidDate(const std::string& date);
 };
 

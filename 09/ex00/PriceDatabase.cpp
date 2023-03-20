@@ -38,7 +38,7 @@ bool PriceDatabase::inputFile(const std::string file) {
         if (ifs.fail()) return false;
         
         while (ifs.getline(line, 50) && ifs.good()) {
-            StringSpliter spliter(line, PRICE_DELIMITER);
+            StringSpliter spliter(line, CSV_DELIMITER);
 
             if (!spliter.getSuccessFlag()) {
                 std::cout << "Wrong format: " << line << std::endl;
