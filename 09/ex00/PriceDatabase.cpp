@@ -1,23 +1,24 @@
 #include "PriceDatabase.hpp"
 #include "StringSpliter.hpp"
 #include "FormatValidator.hpp"
+#include <cstdlib>
 
-float PriceDatabase::getValue(const std::string date) const {
+double PriceDatabase::getValue(const std::string date) const {
     std::string valueStr;
-    float value;
+    double value;
     char *pEnd;
 
-    std::map<std::string, std::string>::const_iterator exactPrice = _database.find(date);
-    if (exactPrice != _database.end()) {
-        valueStr = exactPrice->second;
+    std::map<std::string, std::string>::const_iterator boundPrice = _database.lower_bound(date);
+    if (date.compare(boundPrice->first) == 0) {
+        valueStr = boundPrice->second;
     } else {
-        std::map<std::string, std::string>::const_iterator earlyPrice = _database.lower_bound(date);
-        if (earlyPrice != _database.end()) {
-            valueStr = earlyPrice->second;
-        } else return NOT_FOUND;
+        if (boundPrice == _database.begin()) return NOT_FOUND;
+
+        --boundPrice;
+        valueStr = boundPrice->second;
     }
 
-    value = strtof(valueStr.c_str(), &pEnd);
+    value = strtod(valueStr.c_str(), &pEnd);
     if (errno == ERANGE || *pEnd != '\0' || value < 0) {
         errno = 0;
         std::cout << "Wrong Value: " << valueStr << std::endl;
@@ -28,20 +29,23 @@ float PriceDatabase::getValue(const std::string date) const {
 
 bool PriceDatabase::inputFile(const std::string file) {
     std::ifstream ifs;
-    char line[101];
+    char line[51];
 
-    memset(line, 0, 101);
+    memset(line, 0, 51);
     try {
         ifs.open(file, std::ifstream::in);
-        while (ifs.getline(line, 100) && ifs.good()) {
+
+        if (ifs.fail()) return false;
+        
+        while (ifs.getline(line, 50) && ifs.good()) {
             StringSpliter spliter(line, PRICE_DELIMITER);
 
             if (!spliter.getSuccessFlag()) {
                 std::cout << "Wrong format: " << line << std::endl;
                 continue ;
             }
-            if (strcmp(spliter.getFrontStr().c_str(), "date") == 0
-                && strcmp(spliter.getBackStr().c_str(), "exchange_rate") == 0)
+            if (spliter.getFrontStr().compare("date") == 0
+                && spliter.getBackStr().compare("exchange_rate") == 0)
                 continue ;
 
             if (!insert(spliter.getFrontStr(), spliter.getBackStr()))

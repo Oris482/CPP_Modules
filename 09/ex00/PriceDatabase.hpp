@@ -17,7 +17,7 @@ class PriceDatabase: public Database {
     private:
 
     public:
-        float getValue(const std::string date) const;
+        double getValue(const std::string date) const;
         bool inputFile(const std::string file);
 };
 

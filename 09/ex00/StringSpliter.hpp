@@ -5,7 +5,7 @@
 
 # include <string>
 
-# define WALLET_DELIMITER " | "
+# define AMOUNT_DELIMITER " | "
 # define PRICE_DELIMITER ","
 
 class StringSpliter {

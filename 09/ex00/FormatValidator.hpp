@@ -4,6 +4,7 @@
 # define FORMATVALIDATOR_HPP
 
 # include <string>
+# include <errno.h>
 
 struct FormatValidator {
     static bool isNumber(const std::string& str);

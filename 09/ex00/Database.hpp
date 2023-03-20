@@ -21,7 +21,7 @@ class Database {
 
         bool insert(const std::string date, const std::string value);
         void printAllData(void) const;
-        virtual float getValue(const std::string date) const = 0;
+        virtual double getValue(const std::string date) const = 0;
         virtual bool inputFile(const std::string file) = 0;
 };
 
