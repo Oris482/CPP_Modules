@@ -40,7 +40,7 @@ int main(int argc, char *argv[]) {
     std::cout << "After(Deq): ";
     mergeDeq.printAllElements();
     std::cout << "Time to process a range of " << mergeVec.getSize() << " elements with std::vector<int> : " << mergeVec.getProcessDuration()  << "ms" << std::endl;
-    std::cout << "Time to process a range of " << mergeDeq.getSize() << " elements with std::vector<int> : " << mergeDeq.getProcessDuration()  << "ms" << std::endl;
+    std::cout << "Time to process a range of " << mergeDeq.getSize() << " elements with std::deque<int> : " << mergeDeq.getProcessDuration()  << "ms" << std::endl;
 
     return 0;
 }
