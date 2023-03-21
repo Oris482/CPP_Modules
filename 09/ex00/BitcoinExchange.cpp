@@ -23,7 +23,10 @@ bool BitcoinExchange::setInputFile(const std::string file) {
 }
 
 void BitcoinExchange::startExchange(const PriceDatabase& priceDatabase) {
-    if (!_ifs.is_open() ||  priceDatabase.getDataSize() == 0) return ;
+    if (priceDatabase.getDataSize() == 0) {
+        std::cout << "Price database is empty." << std::endl;
+        return ;
+    }
 
     char line[51];
 

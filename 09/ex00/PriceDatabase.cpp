@@ -8,11 +8,15 @@ double PriceDatabase::getValue(const std::string date) const {
     char *pEnd;
 
     std::map<std::string, std::string>::const_iterator boundPrice = _database.lower_bound(date);
-    if (date.compare(boundPrice->first) == 0) {
+    // 해당 날짜에 데이터가 있는 경우
+    if (boundPrice != _database.end() && date.compare(boundPrice->first) == 0) {
         valueStr = boundPrice->second;
+    // 해당 날짜에 데이터가 없는 경우
     } else {
+        // 제일 오래된 날짜 이전인 경우
         if (boundPrice == _database.begin()) return NOT_FOUND;
 
+        // 과거 데이터가 있는 경우
         --boundPrice;
         valueStr = boundPrice->second;
     }
@@ -39,10 +43,12 @@ bool PriceDatabase::inputFile(const std::string file) {
         while (ifs.getline(line, 50) && ifs.good()) {
             StringSpliter spliter(line, CSV_DELIMITER);
 
+            // 구분자가 없는 경우
             if (!spliter.getSuccessFlag()) {
                 std::cout << "Wrong format: " << line << std::endl;
                 continue ;
             }
+            // 항목 표시줄 패스
             if (spliter.getFrontStr().compare("date") == 0
                 && spliter.getBackStr().compare("exchange_rate") == 0)
                 continue ;
