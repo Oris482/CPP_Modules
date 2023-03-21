@@ -35,6 +35,8 @@ class PmergeMe<std::vector<int> > {
         std::vector<int> _elements;
         clock_t _startTime;
         clock_t _endTime;
+        clock_t _dataSettingTime;
+        clock_t _dataSortingTime;
         
         PmergeMe(const PmergeMe& src);
         PmergeMe& operator= (const PmergeMe& src);
@@ -47,9 +49,14 @@ class PmergeMe<std::vector<int> > {
         virtual void printAllElements(void) const;
         virtual void push_back(int num);
 
-        void setStartTime(void);
-        void setEndTime(void);
+        void startTimer(void);
+        void endTimer(void);
+        void setDataSettingTime(void);
+        void setDataSortingTime(void);
         clock_t getProcessDuration(void) const;
+        clock_t getDataSettingTime(void) const;
+        clock_t getDataSortingTime(void) const;
+        void printAnalysis(const std::string containerType) const;
 
         virtual void mergeSort(size_t start, size_t end, size_t pivot);
         virtual void insertionSort(size_t start, size_t end);
@@ -63,6 +70,8 @@ class PmergeMe<std::deque<int> > {
         std::deque<int> _elements;
         clock_t _startTime;
         clock_t _endTime;
+        clock_t _dataSettingTime;
+        clock_t _dataSortingTime;
 
         PmergeMe(const PmergeMe& src);
         PmergeMe& operator= (const PmergeMe& src);
@@ -75,9 +84,14 @@ class PmergeMe<std::deque<int> > {
         virtual void printAllElements(void) const;
         virtual void push_back(int num);
 
-        void setStartTime(void);
-        void setEndTime(void);
+        void startTimer(void);
+        void endTimer(void);
+        void setDataSettingTime(void);
+        void setDataSortingTime(void);
         clock_t getProcessDuration(void) const;
+        clock_t getDataSettingTime(void) const;
+        clock_t getDataSortingTime(void) const;
+        void printAnalysis(const std::string containerType) const;
 
         virtual void mergeSort(size_t start, size_t end, size_t pivot);
         virtual void insertionSort(size_t start, size_t end);

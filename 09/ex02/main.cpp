@@ -13,34 +13,59 @@ int main(int argc, char *argv[]) {
 
     Parser::parse(numVec, argc, argv);
 
-    // vector<int>
-    mergeVec.setStartTime();
+    /* 
+        Case: vector<int>
+    */
+    // Data setting
+    mergeVec.startTimer();
     for (std::vector<int>::const_iterator it = numVec.begin(); it != numVec.end(); ++it) {
         mergeVec.push_back(*it);
     }
-    mergeVec.sort(0, mergeVec.getSize());
-    mergeVec.setEndTime();
+    mergeVec.endTimer();
+    mergeVec.setDataSettingTime();
 
-    // deque<int>
-    mergeDeq.setStartTime();
+    // Data sorting
+    mergeVec.startTimer();
+    mergeVec.sort(0, mergeVec.getSize());
+    mergeVec.endTimer();
+    mergeVec.setDataSortingTime();
+
+    /* 
+        Case: deque<int>
+    */
+    // Data setting
+    mergeDeq.startTimer();
     for (std::vector<int>::const_iterator it = numVec.begin(); it != numVec.end(); ++it) {
         mergeDeq.push_back(*it);
     }
-    mergeDeq.sort(0, mergeDeq.getSize());
-    mergeDeq.setEndTime();
+    mergeDeq.endTimer();
+    mergeDeq.setDataSettingTime();
 
+    // Data sorting
+    mergeDeq.startTimer();
+    mergeDeq.sort(0, mergeDeq.getSize());
+    mergeDeq.endTimer();
+    mergeDeq.setDataSortingTime();
+
+    /*
+        Print Result
+    */
+    // Original Data
     std::cout << "Before: ";
     for (std::vector<int>::const_iterator it = numVec.begin(); it != numVec.end(); ++it) {
         std::cout << *it << " ";
     }
-    std::cout << "\n";
+    std::cout << std::endl;
 
+    // Sorted Data
     std::cout << "After(Vec): ";
     mergeVec.printAllElements();
     std::cout << "After(Deq): ";
     mergeDeq.printAllElements();
-    std::cout << "Time to process a range of " << mergeVec.getSize() << " elements with std::vector<int> : " << mergeVec.getProcessDuration()  << "ms" << std::endl;
-    std::cout << "Time to process a range of " << mergeDeq.getSize() << " elements with std::deque<int> : " << mergeDeq.getProcessDuration()  << "ms" << std::endl;
+
+    // Print Analysis
+    mergeVec.printAnalysis("std::vector<int>");
+    mergeDeq.printAnalysis("std::deque<int>");
 
     return 0;
 }

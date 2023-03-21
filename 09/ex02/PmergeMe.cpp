@@ -29,16 +29,38 @@ void PmergeMe<std::vector<int> >::push_back(int num) {
     }
 }
 
-void PmergeMe<std::vector<int> >::setStartTime(void) {
+void PmergeMe<std::vector<int> >::startTimer(void) {
     _startTime = clock();
 }
 
-void PmergeMe<std::vector<int> >::setEndTime(void) {
+void PmergeMe<std::vector<int> >::endTimer(void) {
     _endTime = clock();
+}
+
+void PmergeMe<std::vector<int> >::setDataSettingTime() {
+    _dataSettingTime = getProcessDuration();
+}
+
+void PmergeMe<std::vector<int> >::setDataSortingTime() {
+    _dataSortingTime = getProcessDuration();
 }
         
 clock_t PmergeMe<std::vector<int> >::getProcessDuration(void) const {
     return (_endTime - _startTime);
+}
+
+clock_t PmergeMe<std::vector<int> >::getDataSettingTime(void) const {
+    return _dataSettingTime;
+}
+
+clock_t PmergeMe<std::vector<int> >::getDataSortingTime(void) const {
+    return _dataSortingTime;
+}
+
+void PmergeMe<std::vector<int> >::printAnalysis(const std::string containerType) const {
+    std::cout << "Time to process a range of " << getSize() << " elements with " << containerType << std::endl;
+    std::cout << "* For data setting: " << getDataSettingTime() << "ms" << std::endl;
+    std::cout << "* For data sorting: " << getDataSortingTime() << "ms" << std::endl;
 }
 
 void PmergeMe<std::vector<int> >::mergeSort(size_t start, size_t end, size_t pivot) {
@@ -112,16 +134,38 @@ void PmergeMe<std::deque<int> >::push_back(int num) {
     }
 }
 
-void PmergeMe<std::deque<int> >::setStartTime(void) {
+void PmergeMe<std::deque<int> >::startTimer(void) {
     _startTime = clock();
 }
 
-void PmergeMe<std::deque<int> >::setEndTime(void) {
+void PmergeMe<std::deque<int> >::endTimer(void) {
     _endTime = clock();
+}
+
+void PmergeMe<std::deque<int> >::setDataSettingTime(void) {
+    _dataSettingTime = getProcessDuration();
+}
+
+void PmergeMe<std::deque<int> >::setDataSortingTime(void) {
+    _dataSortingTime = getProcessDuration();
 }
         
 clock_t PmergeMe<std::deque<int> >::getProcessDuration(void) const {
     return (_endTime - _startTime);
+}
+
+clock_t PmergeMe<std::deque<int> >::getDataSettingTime(void) const {
+    return _dataSettingTime;
+}
+
+clock_t PmergeMe<std::deque<int> >::getDataSortingTime(void) const {
+    return _dataSortingTime;
+}
+
+void PmergeMe<std::deque<int> >::printAnalysis(const std::string containerType) const {
+    std::cout << "Time to process a range of " << getSize() << " elements with " << containerType << std::endl;
+    std::cout << "* For data setting: " << getDataSettingTime() << "ms" << std::endl;
+    std::cout << "* For data sorting: " << getDataSortingTime() << "ms" << std::endl;
 }
 
 void PmergeMe<std::deque<int> >::mergeSort(size_t start, size_t end, size_t pivot) {
