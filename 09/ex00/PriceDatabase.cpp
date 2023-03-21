@@ -1,7 +1,6 @@
 #include "PriceDatabase.hpp"
 #include "StringSpliter.hpp"
 #include "FormatValidator.hpp"
-#include <cstdlib>
 
 double PriceDatabase::getValue(const std::string date) const {
     std::string valueStr;
@@ -52,7 +51,7 @@ bool PriceDatabase::inputFile(const std::string file) {
                 std::cout << "Duplicate price: " << line << std::endl;
         }
     } catch (std::exception &e) {
-        e.what();
+        std::cout << e.what() << std::endl;;
         return false;
     }
     return true;

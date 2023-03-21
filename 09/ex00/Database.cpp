@@ -25,7 +25,7 @@ bool Database::insert(const std::string date, const std::string value) {
     try {
         _database.insert(make_pair(date, value));
     } catch (std::exception& e) {
-        e.what();
+        std::cout << e.what() << std::endl;;
         exit(1);
     }
     ++_dataSize;

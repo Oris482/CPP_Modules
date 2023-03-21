@@ -1,5 +1,4 @@
 #include "RPN.hpp"
-#include <string>
 
 RPN::RPN(void): _tokenList(TOKEN_LIST){}
 
@@ -46,7 +45,7 @@ void RPN::pushNumber(const std::string numberStr) {
     try {
         _stack.push(atoi(numberStr.c_str()));
     } catch (std::exception& e) {
-        e.what();
+        std::cout << e.what() << std::endl;;
         exit(1);
     }
 }

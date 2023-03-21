@@ -15,7 +15,7 @@ bool BitcoinExchange::setInputFile(const std::string file) {
 
         if (_ifs.fail()) return false;
     } catch (std::exception &e) {
-        e.what();
+        std::cout << e.what() << std::endl;;
         return false;
     }
 
@@ -60,7 +60,7 @@ void BitcoinExchange::startExchange(const PriceDatabase& priceDatabase) {
             std::cout << spliter.getFrontStr() << " => " << spliter.getBackStr() << " = " << static_cast<float>(exchangeRate * amount) << std::endl;
         }
     } catch (std::exception &e) {
-        e.what();
+        std::cout << e.what() << std::endl;;
         return ;
     }
 }
