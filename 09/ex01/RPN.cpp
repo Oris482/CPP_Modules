@@ -85,6 +85,7 @@ void RPN::calculate(const std::string originalExpression) {
     const std::string cuttedExpression = cutSpace(originalExpression);
     std::string::size_type idx = 0;
     std::string::size_type startPoint = 0;
+    bool errorFlag = false;
 
     while (idx <= cuttedExpression.length()) {
         if (idx != cuttedExpression.length() && cuttedExpression.at(idx) != ' ') {
@@ -100,16 +101,21 @@ void RPN::calculate(const std::string originalExpression) {
                 break ;
                 
             case INVALID:
-                std::cout << "Error" << std::endl;
-                exit(1);
+                errorFlag = true;
+                break ;
 
             case NUMBER:
                 pushNumber(chunk);
                 break ;
 
             case TOKEN:
-                handleToken(chunk);
+                if (!handleToken(chunk)) 
+                    errorFlag = true;
                 break ;
+        }
+        if (errorFlag) {
+            std::cout << "Error" << std::endl;
+            exit(1);
         }
         ++idx;
     }
